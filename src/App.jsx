@@ -1,0 +1,187 @@
+import { useState, useEffect, useCallback } from 'react'
+import './App.css'
+import { PROFILE, WINDOWS_CONFIG } from './data/Portfolio-data'
+import DesktopIcon from './components/DesktopIcon';
+import TaskBar from './components/TaskBar';
+import Windows from './components/Windows';
+
+
+
+
+
+const App = () => {
+  const [openWindows, setOpenWindows] = useState([]);
+  const [windowStates, setWindowStates] = useState({});
+  const [zOrders, setZOrders] = useState({});
+  const [maxZ, setMaxZ] = useState(100);
+  const [time, setTime] = useState("");
+
+  // Clock
+  useEffect(() => {
+    const tick = () => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit" }));
+    };
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const openWindow = useCallback(
+    (id) => {
+      setOpenWindows((prev) => (prev.includes(id) ? prev : [...prev, id]));
+      setWindowStates((prev) => ({
+        ...prev,
+        [id]: prev[id] || { minimised: false, pos: getInitialPos(id) },
+      }));
+      setMaxZ((z) => {
+        setZOrders((o) => ({ ...o, [id]: z + 1 }));
+        return z + 1;
+      });
+    },
+    []
+  );
+
+  const closeWindow = useCallback((id) => {
+    setOpenWindows((prev) => prev.filter((w) => w !== id));
+    setWindowStates((prev) => {
+      const n = { ...prev };
+      delete n[id];
+      return n;
+    });
+  }, []);
+
+  const minimizeWindow = useCallback((id) => {
+    setWindowStates((prev) => ({
+      ...prev,
+      [id]: { ...prev[id], minimised: true },
+    }));
+  }, []);
+
+  const focusWindow = useCallback((id) => {
+    setMaxZ((z) => {
+      setZOrders((o) => ({ ...o, [id]: z + 1 }));
+      return z + 1;
+    });
+  }, []);
+
+  const taskbarClick = useCallback(
+    (id) => {
+      const st = windowStates[id];
+      if (!st) return;
+      if (st.minimised) {
+        setWindowStates((prev) => ({ ...prev, [id]: { ...prev[id], minimised: false } }));
+        focusWindow(id);
+      } else {
+        minimizeWindow(id);
+      }
+    },
+    [windowStates, focusWindow, minimizeWindow]
+  );
+
+  
+  return (
+    <>
+      <div
+      className="w-screen h-screen overflow-hidden relative select-none"
+      style={{
+        background: "radial-gradient(ellipse at 30% 20%, #1a0a3a 0%, #0a0a14 50%, #000d1a 100%)",
+        fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
+      }}
+    >
+      {/* Subtle star-field */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage:
+            "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
+          backgroundSize: "64px 64px",
+          opacity: 0.3,
+        }}
+      />
+
+      {/* Ambient blobs */}
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: 600,
+          height: 600,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(110,231,247,0.06) 0%, transparent 70%)",
+          top: -200,
+          left: -100,
+        }}
+      />
+      <div
+        className="absolute pointer-events-none"
+        style={{
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 70%)",
+          bottom: 0,
+          right: 100,
+        }}
+      />
+
+      {/* Desktop icons */}
+      <div className="absolute top-10 left-10 flex flex-col gap-2">
+        {WINDOWS_CONFIG.map((cfg) => (
+          <DesktopIcon key={cfg.id} cfg={cfg} onClick={openWindow} />
+        ))}
+      </div>
+
+      {/* Greeting */}
+      <div
+        className="absolute"
+        style={{ top: "50%", left: "50%", transform: "translate(-50%, -60%)", textAlign: "center", pointerEvents: "none" }}
+      >
+        <p className="text-white/10 text-6xl font-bold tracking-tight leading-none">
+          {PROFILE.name}
+        </p>
+        <p className="text-white/10 text-sm mt-3 tracking-widest uppercase">
+          Click an icon to explore
+        </p>
+      </div>
+
+      {/* Windows */}
+      {openWindows.map((id) => {
+        const cfg = WINDOWS_CONFIG.find((c) => c.id === id);
+        const st = windowStates[id];
+        if (!cfg || !st) return null;
+        return (
+          <Windows
+            key={id}
+            winCfg={cfg}
+            state={st}
+            onClose={closeWindow}
+            onMinimize={minimizeWindow}
+            onFocus={focusWindow}
+            zIndex={zOrders[id] || 100}
+          />
+        );
+      })}
+
+      {/* Taskbar */}
+      <TaskBar
+        openWindows={openWindows}
+        windowStates={windowStates}
+        onTaskbarClick={taskbarClick}
+        time={time}
+      />
+      </div>
+    </>
+  )
+}
+
+
+
+function getInitialPos(id) {
+  const idx = WINDOWS_CONFIG.findIndex((c) => c.id === id);
+  return {
+    x: 120 + idx * 40,
+    y: 80 + idx * 40,
+  };
+}
+
+export default App
