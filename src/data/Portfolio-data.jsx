@@ -1,5 +1,5 @@
 export const PROFILE = {
-    name: "Alex Rivera",
+    name: "Michael",
     title: "Full-Stack Developer & Creative Technologist",
     location: "London, UK",
     email: "alex@example.com",
