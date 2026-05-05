@@ -137,7 +137,7 @@ const App = () => {
         style={{ top: "50%", left: "50%", transform: "translate(-50%, -60%)", textAlign: "center", pointerEvents: "none" }}
       >
         <p className="text-white/10 text-6xl font-bold tracking-tight leading-none">
-          {PROFILE.name}
+          Welcome to My Portfolio
         </p>
         <p className="text-white/10 text-sm mt-3 tracking-widest uppercase">
           Click an icon to explore

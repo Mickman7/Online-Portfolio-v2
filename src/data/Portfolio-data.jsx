@@ -1,17 +1,19 @@
+import ProfilePic from '../assets/profilePic.jpg'
+
 export const PROFILE = {
     name: "Michael",
-    title: "Full-Stack Developer & Creative Technologist",
+    title: "Full-Stack Developer & AI Engineer",
     location: "London, UK",
-    email: "alex@example.com",
-    github: "github.com/alexrivera",
-    linkedin: "linkedin.com/in/alexrivera",
+    email: "michaeljohn_charles@yahoo.com",
+    github: "https://github.com/Mickman7",
+    linkedin: "https://www.linkedin.com/in/michael-john-charles-1a7538200/",
     bio: `I build things for the web — from pixel-perfect interfaces to 
   scalable backend systems. Passionate about clean code, thoughtful design, 
   and making the complex feel simple.
   
   When I'm not coding, you'll find me experimenting with generative art, 
   hiking trails, or hunting for the city's best espresso.`,
-    avatar: "AR",
+    avatar: ProfilePic,
   };
   
   export const PROJECTS = [
@@ -46,19 +48,19 @@ export const PROFILE = {
   ];
   
   export const SKILLS = {
-    Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Three.js", "Framer Motion"],
-    Backend: ["Node.js", "Go", "Python", "PostgreSQL", "Redis", "GraphQL"],
-    DevOps: ["Docker", "AWS", "Vercel", "GitHub Actions", "Terraform"],
-    Design: ["Figma", "Design Systems", "Motion Design", "Accessibility"],
+    Frontend: ["React", "Next.js", "TypeScript", "Tailwind CSS", "HTML", "CSS", "PHP"],
+    Backend: ["Node.js", "Python", "SQL"],
+    AI: ["PyTorch", "TensorFlow", "OpenCV", "Scikit-Learn", "MATLAB"],
+    DevOps: ["Docker", "AWS", "Git", "GitHub"],
+    Design: ["Figma"],
   };
   
   export const CONTACT = {
-    email: "alex@example.com",
-    availability: "Open to opportunities from September 2025",
-    preferredRole: "Senior Frontend or Full-Stack Engineer",
+    email: "michaeljohn_charles@yahoo.com",
+    availability: "Open to Work",
+    preferredRole: "Full-Stack Engineer & AI Engineer",
     message: `I'm always happy to chat about interesting projects, 
-  collaborations, or just geeky things. Drop me a line — 
-  I reply to every message.`,
+  collaborations, or just nerdy things. Drop me a message`
   };
 
   export const WINDOWS_CONFIG = [
