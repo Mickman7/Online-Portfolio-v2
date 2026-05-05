@@ -56,6 +56,11 @@
   }
 }
 
+.desktop-icon {
+  width: 75px;
+  height: 75px;
+}
+
 #center {
   display: flex;
   flex-direction: column;

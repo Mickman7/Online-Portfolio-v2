@@ -8,7 +8,7 @@ const TaskBar = ({ openWindows, windowStates, onTaskbarClick, time }) => {
     <div
       className="fixed bottom-0 left-0 right-0 flex items-center justify-between px-6 py-2"
       style={{
-        background: "rgba(10,10,20,0.7)",
+        background: "rgba(24, 24, 47, 0.7)",
         backdropFilter: "blur(24px)",
         WebkitBackdropFilter: "blur(24px)",
         borderTop: "1px solid rgba(255,255,255,0.08)",

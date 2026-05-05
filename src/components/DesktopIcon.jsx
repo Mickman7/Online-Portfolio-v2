@@ -17,7 +17,7 @@ const DesktopIcon = ({ cfg, onClick }) => {
       onMouseLeave={() => setPressed(false)}
     >
       <div
-        className="w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-150 group-hover:scale-110"
+        className="w-[70px] h-[70px] rounded-2xl flex items-center justify-center transition-transform duration-150 group-hover:scale-110"
         style={{
           background: "rgba(255,255,255,0.06)",
           border: "1px solid rgba(255,255,255,0.12)",

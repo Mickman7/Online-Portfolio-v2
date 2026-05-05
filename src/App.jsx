@@ -83,10 +83,11 @@ const App = () => {
   return (
     <>
       <div
-      className="w-screen h-screen overflow-hidden relative select-none"
+      className="w-screen h-screen overflow-hidden relative select-none overflow-hidden"
       style={{
-        background: "radial-gradient(ellipse at 30% 20%, #1a0a3a 0%, #0a0a14 50%, #000d1a 100%)",
+        background: "radial-gradient(ellipse at 30% 20%,rgb(38, 18, 77) 0%,rgb(25, 25, 54) 50%)",
         fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
+        border: "20px solid #262625"
       }}
     >
       {/* Subtle star-field */}
