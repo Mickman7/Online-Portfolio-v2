@@ -1,5 +1,8 @@
 import React from 'react'
 import { PROFILE } from '../data/Portfolio-data'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons'
+
 
 
 const ProfileContent = () => {
@@ -12,9 +15,9 @@ const ProfileContent = () => {
           className="w-20 h-20 rounded-2xl object-cover "
         />
         <div>
-          <h2 className="text-xl font-bold text-white">{PROFILE.name}</h2>
+          <h2 className="text-xl font-bold text-white">{PROFILE.name} John-Charles</h2>
           <p className="text-[#6ee7f7] text-xs mt-0.5">{PROFILE.title}</p>
-          <p className="text-white/40 text-xs mt-1">📍 {PROFILE.location}</p>
+          <p className="text-white/40 text-xs mt-1"><FontAwesomeIcon icon={faLocationDot} size="l"/> {PROFILE.location}</p>
         </div>
       </div>
 

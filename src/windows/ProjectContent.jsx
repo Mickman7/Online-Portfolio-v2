@@ -9,7 +9,8 @@ const ProjectContent = () => {
       {PROJECTS.map((p) => (
         <div
           key={p.name}
-          className="rounded-2xl p-4 space-y-2 group cursor-pointer transition-all duration-200"
+          onClick={() => window.open(p.link, "_blank", "noopener,noreferrer")}
+          className="rounded-2xl p-4 space-y-2 group cursor-pointer transition-all duration-200 hover:bg-white/[0.07]"
           style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
         >
           <div className="flex items-center justify-between">

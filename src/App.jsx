@@ -4,6 +4,8 @@ import { PROFILE, WINDOWS_CONFIG } from './data/Portfolio-data'
 import DesktopIcon from './components/DesktopIcon';
 import TaskBar from './components/TaskBar';
 import Windows from './components/Windows';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 
 
 
@@ -15,6 +17,11 @@ const App = () => {
   const [zOrders, setZOrders] = useState({});
   const [maxZ, setMaxZ] = useState(100);
   const [time, setTime] = useState("");
+  const [theme, setTheme] = useState("dark");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
 
   // Clock
   useEffect(() => {
@@ -83,21 +90,39 @@ const App = () => {
   return (
     <>
       <div
-      className="w-screen h-screen overflow-hidden relative select-none overflow-hidden"
+      className="w-full h-screen overflow-hidden relative select-none"
       style={{
-        background: "radial-gradient(ellipse at 30% 20%,rgb(38, 18, 77) 0%,rgb(25, 25, 54) 50%)",
+        background: theme === "dark"
+          ? "radial-gradient(ellipse at 30% 20%,rgb(38, 18, 77) 0%,rgb(25, 25, 54) 50%)"
+          : "radial-gradient(ellipse at 30% 20%,rgb(221, 219, 209) 0%,rgb(226, 225, 214) 50%)",
         fontFamily: "'DM Sans', 'Segoe UI', sans-serif",
-        border: "20px solid #262625"
+        border: "20px solid #262625",
+        boxSizing: "border-box"
       }}
     >
+      {/* Theme toggle */}
+      <button
+        onClick={() => setTheme(t => t === "dark" ? "light" : "dark")}
+        className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full flex items-center justify-center text-lg transition-colors cursor-pointer"
+        style={{
+          background: theme === "dark" ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.05)",
+          border: `1px solid ${theme === "dark" ? "rgba(255,255,255,0.2)" : "rgba(0,0,0,0.15)"}`,
+          color: theme === "dark" ? "#fff" : "#333",
+        }}
+        aria-label="Toggle theme"
+      >
+        {theme === "dark" ? <FontAwesomeIcon icon={faSun} size="l"/>: <FontAwesomeIcon icon={faMoon} size="l"/>}
+      </button>
+
       {/* Subtle star-field */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)",
+          backgroundImage: theme === "dark"
+            ? "radial-gradient(circle, rgba(255,255,255,0.12) 1px, transparent 1px)"
+            : "radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px)",
           backgroundSize: "64px 64px",
-          opacity: 0.3,
+          opacity: theme === "dark" ? 0.3 : 0.2,
         }}
       />
 
@@ -108,7 +133,9 @@ const App = () => {
           width: 600,
           height: 600,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(110,231,247,0.06) 0%, transparent 70%)",
+          background: theme === "dark"
+            ? "radial-gradient(circle, rgba(110,231,247,0.06) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%)",
           top: -200,
           left: -100,
         }}
@@ -119,7 +146,9 @@ const App = () => {
           width: 500,
           height: 500,
           borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 70%)",
+          background: theme === "dark"
+            ? "radial-gradient(circle, rgba(167,139,250,0.07) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(236,72,153,0.06) 0%, transparent 70%)",
           bottom: 0,
           right: 100,
         }}
@@ -137,10 +166,10 @@ const App = () => {
         className="absolute"
         style={{ top: "50%", left: "50%", transform: "translate(-50%, -60%)", textAlign: "center", pointerEvents: "none" }}
       >
-        <p className="text-white/10 text-6xl font-bold tracking-tight leading-none">
-          Welcome to My Portfolio
+        <p className={`text-6xl font-bold tracking-tight leading-none ${theme === "dark" ? "text-white/10" : "text-black/10"}`}>
+          {`< Welcome To My Portfolio />`}
         </p>
-        <p className="text-white/10 text-sm mt-3 tracking-widest uppercase">
+        <p className={`text-sm mt-3 tracking-widest uppercase ${theme === "dark" ? "text-white/10" : "text-black/10"}`}>
           Click an icon to explore
         </p>
       </div>
@@ -168,7 +197,7 @@ const App = () => {
         openWindows={openWindows}
         windowStates={windowStates}
         onTaskbarClick={taskbarClick}
-        time={time}
+        theme={theme}
       />
       </div>
     </>

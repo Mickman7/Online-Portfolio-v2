@@ -1,4 +1,7 @@
 import ProfilePic from '../assets/profilePic.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faFolderOpen, faEnvelope } from '@fortawesome/free-regular-svg-icons'
+import { faCode, faLocationDot } from '@fortawesome/free-solid-svg-icons'
 
 export const PROFILE = {
     name: "Michael",
@@ -6,7 +9,7 @@ export const PROFILE = {
     location: "London, UK",
     email: "michaeljohn_charles@yahoo.com",
     github: "https://github.com/Mickman7",
-    linkedin: "https://www.linkedin.com/in/michael-john-charles-1a7538200/",
+    linkedin: "www.linkedin.com/in/michael-john-charles-1a7538200/",
     bio: `I build things for the web — from pixel-perfect interfaces to 
   scalable backend systems. Passionate about clean code, thoughtful design, 
   and making the complex feel simple.
@@ -18,32 +21,32 @@ export const PROFILE = {
   
   export const PROJECTS = [
     {
-      name: "Orbit Dashboard",
-      tech: ["React", "D3.js", "Node.js"],
-      desc: "Real-time analytics dashboard with interactive data visualisations for a SaaS platform serving 50k+ users.",
-      link: "#",
+      name: "QualityLens",
+      tech: ["Streamlit", "PyTorch", "MobileNetV3", "FastAPI"],
+      desc: "An intuitive AI-powered application I developed to automate fruit quality assessment through computer vision. ",
+      link: "https://github.com/Mickman7/QualityLens",
       status: "Live",
     },
     {
-      name: "Verdant",
-      tech: ["Next.js", "Supabase", "Tailwind"],
-      desc: "Sustainable shopping companion that scores products by environmental impact using ML-powered analysis.",
-      link: "#",
+      name: "AI-PPLY",
+      tech: ["React.js", "FastAPI", "Tailwind", "OpenAI"],
+      desc: "A specialised Applicant Tracking System (ATS) tool used to evaluate resume compatibility against job descriptions.",
+      link: "https://github.com/Mickman7/AI-PPLY",
       status: "Live",
     },
     {
-      name: "Pulse API",
-      tech: ["Go", "PostgreSQL", "Docker"],
-      desc: "High-performance REST API gateway handling 10M+ requests/day with intelligent rate limiting and caching.",
-      link: "#",
-      status: "Open Source",
+      name: "Healify",
+      tech: ["React Native", "Firebase", "Firestore", "FirebaseAuth"],
+      desc: "Healify is a eGFR calculator application for patients with kidney disease.",
+      link: "https://github.com/Mickman7/Healify",
+      status: "Mobile App",
     },
     {
-      name: "Chromatic",
-      tech: ["Three.js", "GLSL", "WebAudio"],
-      desc: "Browser-based audio visualiser that generates procedural 3D art synced to microphone input in real time.",
-      link: "#",
-      status: "Experiment",
+      name: "OptiCare",
+      tech: ["React Native", "Firebase", "Firestore", "FirebaseAuth"],
+      desc: "A cross-platform mobile application using React Native to streamline hospital workflows, including appointment booking and treatment scheduling.",
+      link: "https://github.com/Mickman7/OptiCare",
+      status: "Mobile App",
     },
   ];
   
@@ -69,27 +72,27 @@ export const PROFILE = {
       label: "Profile",
       color: "#6ee7f7",
       glowColor: "rgba(110,231,247,0.3)",
-      icon: "👤",
+      icon: <FontAwesomeIcon icon={faUser} size="xl" />,
     },
     {
       id: "projects",
       label: "Projects",
       color: "#a78bfa",
       glowColor: "rgba(167,139,250,0.3)",
-      icon: "📁",
+      icon: <FontAwesomeIcon icon={faFolderOpen} size="xl" />,
     },
     {
       id: "skills",
       label: "Skills",
       color: "#34d399",
       glowColor: "rgba(52,211,153,0.3)",
-      icon: "⚡",
+      icon: <FontAwesomeIcon icon={faCode} size="xl" />,
     },
     {
       id: "contact",
       label: "Contact",
       color: "#fbbf24",
       glowColor: "rgba(251,191,36,0.3)",
-      icon: "✉️",
+      icon: <FontAwesomeIcon icon={faEnvelope} size="xl" />,
     },
   ];
