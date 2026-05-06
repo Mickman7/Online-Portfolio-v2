@@ -1,4 +1,4 @@
-import ProfilePic from '../assets/ProfilePic.JPG'
+import ProfilePic from '../assets/profilePic.JPG'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faFolderOpen, faEnvelope } from '@fortawesome/free-regular-svg-icons'
 import { faCode, faLocationDot } from '@fortawesome/free-solid-svg-icons'
