@@ -35,12 +35,12 @@ const ProjectContent = () => {
               {p.status}
             </span>
           </div>
-          <p className="text-white/50 text-xs leading-relaxed">{p.desc}</p>
+          <p className="p-2 text-white/50 text-xs leading-relaxed">{p.desc}</p>
           <div className="flex flex-wrap gap-1.5 pt-1">
             {p.tech.map((t) => (
               <span
                 key={t}
-                className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-white/40 border border-white/10"
+                className="text-[12px] px-2 py-0.5 rounded-xl bg-white/5 text-white/40 border border-white/10"
               >
                 {t}
               </span>
