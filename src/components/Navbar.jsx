@@ -1,11 +1,8 @@
-import { View, Text } from 'react-native'
 import React from 'react'
 
 const Navbar = () => {
   return (
-    <View>
-      <Text>Navbar</Text>
-    </View>
+    <div>Navbar</div>
   )
 }
 

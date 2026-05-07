@@ -21,6 +21,13 @@ export const PROFILE = {
   
   export const PROJECTS = [
     {
+        name: "OfficeEye",
+        tech: ["Python", "DeepFace", "Streamlit", "SQLite", "OpenCV", "NumPy"],
+        desc: "A specialised security system developed as an end-to-end computer vision project, the application utilises Deep Learning models to detect and identify registered office staff in real-time while managing a secure identity database. ",
+        link: "https://github.com/Mickman7/OfficeEye",
+        status: "Live",
+      },
+    {
       name: "QualityLens",
       tech: ["Streamlit", "PyTorch", "MobileNetV3", "FastAPI"],
       desc: "An intuitive AI-powered application I developed to automate fruit quality assessment through computer vision. ",
