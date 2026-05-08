@@ -6,6 +6,7 @@ import TaskBar from './components/TaskBar';
 import Windows from './components/Windows';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
+import IntroScene from './components/IntroScene';
 
 
 
@@ -18,6 +19,7 @@ const App = () => {
   const [maxZ, setMaxZ] = useState(100);
   const [time, setTime] = useState("");
   const [theme, setTheme] = useState("dark");
+  const [showPortfolio, setShowPortfolio] = useState(false);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -100,6 +102,15 @@ const App = () => {
         boxSizing: "border-box"
       }}
     >
+      {!showPortfolio ? (
+        <IntroScene onEnter={() => setShowPortfolio(true)} />
+      ) : (
+        <div className="portfolio-content">
+          {/* Your actual site content goes here */}
+        </div>
+      )}
+
+
       {/* Theme toggle */}
       <button
         onClick={() => setTheme(t => t === "dark" ? "light" : "dark")}
