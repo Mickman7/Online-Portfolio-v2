@@ -14,8 +14,8 @@ export const PROFILE = {
   scalable backend systems. Passionate about clean code, thoughtful design, 
   and making the complex feel simple.
   
-  When I'm not coding, you'll find me experimenting with generative art, 
-  hiking trails, or hunting for the city's best espresso.`,
+  When I'm not coding, you'll find me learning something new, 
+  takinh walks to watch the sunset, or hunting for the city's best food spots.`,
     avatar: ProfilePic,
   };
   

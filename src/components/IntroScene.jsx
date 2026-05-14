@@ -405,11 +405,6 @@ function Scene({ triggered, onZoomComplete }) {
         <meshStandardMaterial color="#d1c0a1" roughness={1} />
       </mesh>
  
-      {/* Wall accent strip — glowing line at top */}
-      <mesh position={[0, 3.6, -2.99]}>
-        <planeGeometry args={[8, 0.02]} />
-        <meshBasicMaterial color="#6ee7f7" transparent opacity={0.3} />
-      </mesh>
  
       <group position={[0, -0.04, 0]}>
         <Desk />
@@ -468,7 +463,7 @@ export default function IntroScene({ onEnter }) {
         position: "fixed", inset: 0, zIndex: 1000, cursor: triggered ? "default" : "pointer",
         opacity: fadeOut ? 0 : 1,
         transition: fadeOut ? "opacity 0.55s ease" : "none",
-        background: "#080810",
+        background: "#fafaf7",
       }}
     >
       {/* Canvas */}
@@ -497,7 +492,7 @@ export default function IntroScene({ onEnter }) {
         pointerEvents: "none",
       }}>
         <div>System Ready</div>
-        <div style={{ color: "rgba(255,255,255,0.2)" }}>v2.0.0 · 2025</div>
+        <div style={{ color: "rgba(255,255,255,0.2)" }}>v2.0.0 · 2026</div>
       </div>
  
       {/* Corner HUD — top right */}

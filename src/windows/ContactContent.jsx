@@ -15,7 +15,7 @@ const ContactContent = () => {
         <p className="text-white/40 text-xs mt-1">{CONTACT.preferredRole}</p>
       </div>
 
-      <p className="text-white/50 text-sm leading-relaxed whitespace-pre-line">{CONTACT.message}</p>
+      <p className="pb-2 text-white/50 text-sm leading-relaxed whitespace-pre-line">{CONTACT.message}</p>
 
       <a
         href={`mailto:${CONTACT.email}`}
