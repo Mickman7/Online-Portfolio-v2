@@ -15,7 +15,7 @@ export const PROFILE = {
   and making the complex feel simple.
   
   When I'm not coding, you'll find me learning something new, 
-  takinh walks to watch the sunset, or hunting for the city's best food spots.`,
+  taking walks to watch the sunset, or hunting for the city's best food spots.`,
     avatar: ProfilePic,
   };
   
